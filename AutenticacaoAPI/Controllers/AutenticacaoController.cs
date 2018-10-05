@@ -17,18 +17,18 @@ namespace AutenticacaoAPI.Controllers
         {
             AutenticacaoResponsePost result = new AutenticacaoResponsePost();
 
-            if (request.Email == "keppel@iec.com.br" && request.Pass == "123456")
+            if (request.Email == "keppel@iec.com.br" && request.Password == "123456")
             {
-                AutenticacaoModel autenticacao = new AutenticacaoModel
+                AutenticacaoModel autenticacaoModel = new AutenticacaoModel
                 {
-                    Token = Guid.NewGuid().ToString(),
-                    DataCriacao = DateTime.Now
+                    Token = "dfadsfa4567"
                 };
-                result.StatusCode = 200;
-                result.Autenticacao = autenticacao;
+
+                result.Autenticacao = autenticacaoModel;
+                result.IsValid = 1;
             }
             else
-                result.StatusCode = 204;
+                result.IsValid = 0;
             return result;
         }
 
